@@ -91,8 +91,6 @@ public class GLRenderer implements GLEventListener {
         objek.Tabung(gl);
         gl.glPopMatrix();
 
-        //objek.Bola(gl);
-        gl.glPopMatrix();
         gl.glFlush();
     }
 
@@ -127,7 +125,7 @@ public class GLRenderer implements GLEventListener {
         } //huruf E
         else if (keyCode == 69) {
             Cx = 0f;
-            Cy = 15f;
+            Cy = 14f;
             Cz = 2f;
             Lx = 0f;
             Ly = 0f;
