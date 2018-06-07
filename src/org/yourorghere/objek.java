@@ -203,4 +203,9 @@ public class objek {
         gl.glVertex3f(3.0f, 3.0f, 0.0f);
         gl.glEnd();
     }
+    
+    
+    static void lingkaran(GL gl){
+        
+    }
 }
