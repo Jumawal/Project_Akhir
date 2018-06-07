@@ -5,10 +5,6 @@
  */
 package org.yourorghere;
 
-/**
- *
- * @author JUMAWAL_GaGaH
- */
 import com.sun.opengl.util.GLUT;
 import javax.media.opengl.GL;
 import javax.media.opengl.glu.GLU;
@@ -73,6 +69,7 @@ public class objek {
     }
 
     static void Tabung(GL gl) {
+<<<<<<< HEAD
 
         float amb[] = {1.34f, 0.34f, 0.34f, 1};
         float diff[] = {0.41f, 0.41f, 0.41f, 1};
@@ -118,6 +115,19 @@ public class objek {
 
         float BODY_LENGTH = 2.0f;
         float BODY_RADIUS = 0.4f;
+=======
+        float amb[] = {0.34f, 0.34f, 0.34f, 1};
+        float diff[] = {0.41f, 0.41f, 0.41f, 1};
+        float spec[] = {0.11f, 0.11f, 0.11f, 1};
+        float shine = 200;
+
+        gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT, amb, 0);
+        gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL.GL_DIFFUSE, diff, 0);
+        gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL.GL_SPECULAR, spec, 0);
+        gl.glMaterialf(GL.GL_FRONT_AND_BACK, GL.GL_SHININESS, shine);
+        float BODY_LENGTH = 5f;
+        float BODY_RADIUS = 2.0f;
+>>>>>>> 0bf5e716b58e4ca3a0beb56a583a7e00ce6eb998
         int SLICES = 30;
         int STACKS = 30;
         GLU glu = new GLU();
@@ -144,18 +154,27 @@ public class objek {
         float diff[] = {0, 0.5f, 0, 1};
         float spec[] = {0, 0.5f, 0, 1};
         float shine = 0;
+<<<<<<< HEAD
         gl.glMaterialfv(GL.GL_FRONT, GL.GL_AMBIENT, amb, 0);
         gl.glMaterialfv(GL.GL_FRONT, GL.GL_DIFFUSE, diff, 0);
         gl.glMaterialfv(GL.GL_FRONT, GL.GL_SPECULAR, spec, 0);
 
         gl.glMaterialf(GL.GL_FRONT_AND_BACK, GL.GL_SHININESS, shine);
 
+=======
+
+        gl.glMaterialfv(GL.GL_FRONT, GL.GL_AMBIENT, amb, 0);
+        gl.glMaterialfv(GL.GL_FRONT, GL.GL_DIFFUSE, diff, 0);
+        gl.glMaterialfv(GL.GL_FRONT, GL.GL_SPECULAR, spec, 0);
+        gl.glMaterialf(GL.GL_FRONT_AND_BACK, GL.GL_SHININESS, shine);
+>>>>>>> 0bf5e716b58e4ca3a0beb56a583a7e00ce6eb998
         gl.glBegin(GL.GL_QUADS);
         gl.glVertex3f(-10000, 0, -10000);
         gl.glVertex3f(10000, 0, -10000);
         gl.glVertex3f(10000, 0, 10000);
         gl.glVertex3f(-10000, 0, 10000);
         gl.glEnd();
+<<<<<<< HEAD
 
     }
 
@@ -206,5 +225,7 @@ public class objek {
 
     static void lingkaran(GL gl) {
 
+=======
+>>>>>>> 0bf5e716b58e4ca3a0beb56a583a7e00ce6eb998
     }
 }
