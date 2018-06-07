@@ -15,10 +15,10 @@ import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
 public class objek {
-    
-    static void baling(GL gl){
+
+    static void baling(GL gl) {
         gl.glBegin(GL.GL_TRIANGLES);
-        gl.glColor3f(0.0f, 2.0f, 2.0f); 
+        gl.glColor3f(0.0f, 2.0f, 2.0f);
         gl.glVertex3f(-2f, 2.5f, -0.5f);
         gl.glVertex3f(-2f, 2.5f, 0.5f);
         gl.glVertex3f(0f, 2.5f, 0f);
@@ -203,9 +203,8 @@ public class objek {
         gl.glVertex3f(3.0f, 3.0f, 0.0f);
         gl.glEnd();
     }
-    
-    
-    static void lingkaran(GL gl){
-        
+
+    static void lingkaran(GL gl) {
+
     }
 }

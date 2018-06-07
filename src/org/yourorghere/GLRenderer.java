@@ -148,7 +148,6 @@ public class GLRenderer implements GLEventListener {
 //        gl.glRotatef(90f, 1f, 0, 0);
 //        objek.baling(gl);
 //        gl.glPopMatrix();
-
         gl.glPushMatrix();
         objek.BigBox(gl);
         gl.glPopMatrix();
@@ -157,6 +156,7 @@ public class GLRenderer implements GLEventListener {
     }
 
     public void displayChanged(GLAutoDrawable drawable, boolean modeChanged, boolean deviceChanged) {
+
     }
 
     void Key_Pressed(int keyCode) {

@@ -69,7 +69,6 @@ public class Project_Akhir extends JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(650, 450);
         animator = new Animator(canvas);
-
         canvas.setMinimumSize(new Dimension());
         this.addWindowListener(new WindowAdapter() {
             @Override
