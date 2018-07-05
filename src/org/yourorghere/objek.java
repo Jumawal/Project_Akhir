@@ -286,4 +286,48 @@ public class objek {
         gl.glEnd();
 
     }
+    static void tombol2(GL gl) {
+        gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
+        gl.glVertex3f(0.0f, 0.0f, 0.0f);
+        gl.glVertex3f(0.0f, 0.0f, 0.4f);
+        gl.glVertex3f(0.4f, 0.0f, 0.4f);
+        gl.glVertex3f(0.4f, 0.0f, 0.0f);
+        gl.glEnd();
+        gl.glBegin(GL.GL_POLYGON);/* f2: Surface bagian bawah
+(ABFE) */
+        gl.glVertex3f(0.0f, 0.0f, 0.0f);
+        gl.glVertex3f(0.4f, 0.0f, 0.0f);
+        gl.glVertex3f(0.4f, 0.4f, 0.0f);
+        gl.glVertex3f(0.0f, 0.4f, 0.0f);
+        gl.glEnd();
+        gl.glBegin(GL.GL_POLYGON);/* f3:Surface bagian belakang
+(CDHG)*/
+        gl.glVertex3f(0.4f, 0.4f, 0.0f);
+        gl.glVertex3f(0.4f, 0.4f, 0.4f);
+        gl.glVertex3f(0.0f, 0.4f, 0.4f);
+        gl.glVertex3f(0.0f, 0.4f, 0.0f);
+        gl.glEnd();
+        gl.glBegin(GL.GL_POLYGON);/* f4: Surface bagian atas
+(EFGH)*/
+        gl.glVertex3f(0.4f, 0.4f, 0.4f);
+        gl.glVertex3f(0.4f, 0.0f, 0.4f);
+        gl.glVertex3f(0.0f, 0.0f, 0.4f);
+        gl.glVertex3f(0.0f, 0.4f, 0.4f);
+        gl.glEnd();
+        gl.glBegin(GL.GL_POLYGON);/* f5: Surface bagian kiri 
+(ADEH)*/
+        gl.glVertex3f(0.0f, 0.0f, 0.0f);
+        gl.glVertex3f(0.0f, 0.4f, 0.0f);
+        gl.glVertex3f(0.0f, 0.4f, 0.4f);
+        gl.glVertex3f(0.0f, 0.0f, 0.4f);
+        gl.glEnd();
+        gl.glBegin(GL.GL_POLYGON);/* f6: Surface bagian kanan
+(BCFG)*/
+        gl.glVertex3f(0.4f, 0.0f, 0.0f);
+        gl.glVertex3f(0.4f, 0.0f, 0.4f);
+        gl.glVertex3f(0.4f, 0.4f, 0.4f);
+        gl.glVertex3f(0.4f, 0.4f, 0.0f);
+        gl.glEnd();
+
+    }
 }
