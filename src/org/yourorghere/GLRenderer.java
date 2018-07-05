@@ -142,12 +142,69 @@ public class GLRenderer implements GLEventListener {
         objek.kotak2(gl);
         gl.glPopMatrix();
 
-//        //untuk baling baling
-//        gl.glPushMatrix();
-//        gl.glTranslatef(0.5f, 3.5f, -15.2f);
-//        gl.glRotatef(90f, 1f, 0, 0);
-//        objek.baling(gl);
-//        gl.glPopMatrix();
+        //untuk tabung ke3
+        gl.glPushMatrix();
+        gl.glTranslatef(0.5f, 3.6f, -15.5f);
+        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
+        objek.tabung3(gl);
+        gl.glPopMatrix();
+
+        //untuk kotak baling baling atas
+        gl.glPushMatrix();
+        gl.glTranslatef(0.9f, 4.3f, -13.7f);
+        gl.glRotatef(90f, 0.0f, 0.0f, 1.0f);
+        objek.kotakK1(gl);
+        gl.glPopMatrix();
+
+        //untuk kotak baling baling bawah
+        gl.glPushMatrix();
+        gl.glTranslatef(0.9f, 2.5f, -13.7f);
+        gl.glRotatef(90f, 0.0f, 0.0f, 1.0f);
+        objek.kotakK1(gl);
+        gl.glPopMatrix();
+        
+        //untuk kotak baling baling kanan
+        gl.glPushMatrix();
+        gl.glTranslatef(1.5f, 3.0f, -13.7f);
+        gl.glRotatef(0f, 0.0f, 0.0f, 1.0f);
+        objek.kotakK1(gl);
+        gl.glPopMatrix();
+        
+        //untuk kotak baling baling kiri
+        gl.glPushMatrix();
+        gl.glTranslatef(-0.5f, 3.0f, -13.7f);
+        gl.glRotatef(0f, 0.0f, 0.0f, 1.0f);
+        objek.kotakK1(gl);
+        gl.glPopMatrix();
+        
+        //tombol nomer 0
+        gl.glPushMatrix();  
+        gl.glTranslatef(-0.5f, 0.3f, -13.0f);
+        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
+        objek.tombol(gl);
+        gl.glPopMatrix();
+        
+        //tombol nomer 1
+        gl.glPushMatrix();
+        gl.glTranslatef(0.0f, 0.3f, -13.0f);
+        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
+        objek.tombol(gl);
+        gl.glPopMatrix();
+        
+        //tombol nomer 2
+        gl.glPushMatrix();
+        gl.glTranslatef(0.5f, 0.3f, -13.0f);
+        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
+        objek.tombol(gl);
+        gl.glPopMatrix();
+        
+         //tombol nomer 3
+        gl.glPushMatrix();
+        gl.glTranslatef(1.0f, 0.3f, -13.0f);
+        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
+        objek.tombol(gl);
+        gl.glPopMatrix();
+
 
         gl.glPushMatrix();
         objek.BigBox(gl);
