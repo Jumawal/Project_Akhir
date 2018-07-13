@@ -73,20 +73,7 @@ public class objek {
     }
 
     static void Tabung(GL gl) {
-
-        float amb[] = {1.34f, 0.34f, 0.34f, 1};
-        float diff[] = {0.41f, 0.41f, 0.41f, 1};
-        float spec[] = {0.11f, 0.11f, 0.11f, 1};
-        float shine = 200;
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_AMBIENT, amb, 1);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_DIFFUSE, diff, 0);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_SPECULAR, spec, 0);
-        gl.glMaterialf(GL.GL_FRONT_AND_BACK,
-                GL.GL_SHININESS, shine);
-
+        gl.glColor3f(0.0f, 1.0f, 0.0f);
         float BODY_LENGTH = 2.0f;
         float BODY_RADIUS = 0.5f;
         int SLICES = 30;
@@ -103,19 +90,7 @@ public class objek {
 
     static void Tabung2(GL gl) {
 
-        float amb[] = {1.34f, 0.34f, 0.34f, 1};
-        float diff[] = {0.41f, 0.41f, 0.41f, 1};
-        float spec[] = {0.11f, 0.11f, 0.11f, 1};
-        float shine = 200;
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_AMBIENT, amb, 1);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_DIFFUSE, diff, 0);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_SPECULAR, spec, 0);
-        gl.glMaterialf(GL.GL_FRONT_AND_BACK,
-                GL.GL_SHININESS, shine);
-
+        gl.glColor3f(0.0f, 1.0f, 1.0f);
         float BODY_LENGTH = 2.0f;
         float BODY_RADIUS = 0.4f;
         int SLICES = 30;
@@ -140,17 +115,9 @@ public class objek {
     }
 
     static void BigBox(GL gl) {
-        float amb[] = {0, 0.5f, 0, 1};
-        float diff[] = {0, 0.5f, 0, 1};
-        float spec[] = {0, 0.5f, 0, 1};
-        float shine = 0;
-        gl.glMaterialfv(GL.GL_FRONT, GL.GL_AMBIENT, amb, 0);
-        gl.glMaterialfv(GL.GL_FRONT, GL.GL_DIFFUSE, diff, 0);
-        gl.glMaterialfv(GL.GL_FRONT, GL.GL_SPECULAR, spec, 0);
-
-        gl.glMaterialf(GL.GL_FRONT_AND_BACK, GL.GL_SHININESS, shine);
 
         gl.glBegin(GL.GL_QUADS);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(-10000, 0, -10000);
         gl.glVertex3f(10000, 0, -10000);
         gl.glVertex3f(10000, 0, 10000);
@@ -161,7 +128,7 @@ public class objek {
 
     static void kotak(GL gl) {
         gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glColor3f(1.0f, 1.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(0.0f, 0.0f, 2.0f);
         gl.glVertex3f(2.0f, 0.0f, 2.0f);
@@ -205,19 +172,20 @@ public class objek {
     }
 
     static void tabung3(GL gl) {
-        float amb[] = {1.34f, 0.34f, 0.34f, 1};
-        float diff[] = {0.41f, 0.41f, 0.41f, 1};
-        float spec[] = {0.11f, 0.11f, 0.11f, 1};
-        float shine = 200;
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_AMBIENT, amb, 1);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_DIFFUSE, diff, 0);
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
-                GL.GL_SPECULAR, spec, 0);
-        gl.glMaterialf(GL.GL_FRONT_AND_BACK,
-                GL.GL_SHININESS, shine);
+//        float amb[] = {1.34f, 0.34f, 0.34f, 1};
+//        float diff[] = {0.41f, 0.41f, 0.41f, 1};
+//        float spec[] = {0.11f, 0.11f, 0.11f, 1};
+//        float shine = 200;
+//        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
+//                GL.GL_AMBIENT, amb, 1);
+//        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
+//                GL.GL_DIFFUSE, diff, 0);
+//        gl.glMaterialfv(GL.GL_FRONT_AND_BACK,
+//                GL.GL_SPECULAR, spec, 0);
+//        gl.glMaterialf(GL.GL_FRONT_AND_BACK,
+//                GL.GL_SHININESS, shine);
 
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
         float BODY_LENGTH = 2.0f;
         float BODY_RADIUS = 0.4f;
         int SLICES = 30;
@@ -244,6 +212,7 @@ public class objek {
 
     static void tombol(GL gl) {
         gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
+        gl.glColor3f(0.0f, 1.0f, 1.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.4f);
         gl.glVertex3f(0.4f, 0.0f, 0.4f);
@@ -286,6 +255,7 @@ public class objek {
         gl.glEnd();
 
     }
+
     static void tombol2(GL gl) {
         gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
