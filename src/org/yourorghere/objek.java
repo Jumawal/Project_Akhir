@@ -18,66 +18,67 @@ import javax.media.opengl.glu.GLUquadric;
 
 public class objek {
 
-    static void baling(GL gl) {
-        gl.glBegin(GL.GL_TRIANGLES);
-        gl.glColor3f(0.0f, 2.0f, 2.0f);
-        gl.glVertex3f(-2f, 2.5f, -0.5f);
-        gl.glVertex3f(-2f, 2.5f, 0.5f);
-        gl.glVertex3f(0f, 2.5f, 0f);
-        gl.glVertex3f(0f, 2.5f, 0f);
-        gl.glVertex3f(2f, 2.5f, -0.5f);
-        gl.glVertex3f(2f, 2.5f, 0.5f);
+    static void kotak(GL gl) {
+        gl.glBegin(GL.GL_POLYGON);// bagian belakang
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
+        gl.glVertex3f(-2.5f, 0.5f, -2.5f);//A
+        gl.glVertex3f(2.5f, 0.5f, -2.5f);//B
+        gl.glVertex3f(2.5f, -0.5f, -2.5f);//C
+        gl.glVertex3f(-2.5f, -0.5f, -2.5f);//D
+        gl.glEnd();
+
+        gl.glBegin(GL.GL_POLYGON);//bagian depan
+        gl.glVertex3f(-2.5f, 0.5f, 2.5f);//E
+        gl.glVertex3f(2.5f, 0.5f, 2.5f);//F
+        gl.glVertex3f(2.5f, -0.5f, 2.5f);//G
+        gl.glVertex3f(-2.5f, -0.5f, 2.5f);//H
+        gl.glEnd();
+
+        gl.glBegin(GL.GL_POLYGON);//bagian BAWAH
+        gl.glVertex3f(-2.5f, -0.5f, -2.5f);//D
+        gl.glVertex3f(2.5f, -0.5f, -2.5f);//C
+        gl.glVertex3f(2.5f, -0.5f, 2.5f);//G
+        gl.glVertex3f(-2.5f, -0.5f, 2.5f);//H
+        gl.glEnd();
+
+        gl.glBegin(GL.GL_POLYGON);//bagian ATAS
+        gl.glColor3f(0.0f, 1.0f, 1.0f);
+        gl.glVertex3f(-2.5f, 0.5f, -2.5f);//A
+        gl.glVertex3f(2.5f, 0.5f, -2.5f);//B
+        gl.glVertex3f(2.5f, 0.5f, 2.5f);//F
+        gl.glVertex3f(-2.5f, 0.5f, 2.5f);//E
+        gl.glEnd();
+
+        gl.glBegin(GL.GL_POLYGON);//Surface bagian Samping kiri
+        gl.glVertex3f(-2.5f, 0.5f, 2.5f);//E
+        gl.glVertex3f(-2.5f, 0.5f, -2.5f);//A
+        gl.glVertex3f(-2.5f, -0.5f, -2.5f);//D
+        gl.glVertex3f(-2.5f, -0.5f, 2.5f);//H
+        gl.glEnd();
+
+        gl.glBegin(GL.GL_POLYGON);//bagian kanan Samping Kanan
+        gl.glVertex3f(2.5f, 0.5f, 2.5f);//F
+        gl.glVertex3f(2.5f, 0.5f, -2.5f);//B
+        gl.glVertex3f(2.5f, -0.5f, -2.5f);//C
+        gl.glVertex3f(2.5f, -0.5f, 2.5f);//G
         gl.glEnd();
     }
 
-    static void kotak2(GL gl) {
-        gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 0.0f, 1.0f);
-        gl.glVertex3f(1.0f, 0.0f, 1.0f);
-        gl.glVertex3f(1.0f, 0.0f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f2: Surface bagian bawah
-(ABFE) */
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(0.0f, 1.0f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f3:Surface bagian belakang
-(CDHG)*/
-        gl.glVertex3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(0.0f, 1.0f, 1.0f);
-        gl.glVertex3f(0.0f, 1.0f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f4: Surface bagian atas
-(EFGH)*/
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 0.0f, 1.0f);
-        gl.glVertex3f(0.0f, 0.0f, 1.0f);
-        gl.glVertex3f(0.0f, 1.0f, 1.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f5: Surface bagian kiri 
-(ADEH)*/
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 1.0f, 0.0f);
-        gl.glVertex3f(0.0f, 1.0f, 1.0f);
-        gl.glVertex3f(0.0f, 0.0f, 1.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f6: Surface bagian kanan
-(BCFG)*/
-        gl.glVertex3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f, 0.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 0.0f);
-        gl.glEnd();
-    }
-
+//    static void baling(GL gl) {
+//        gl.glBegin(GL.GL_TRIANGLES);
+//        gl.glColor3f(0.0f, 2.0f, 2.0f);
+//        gl.glVertex3f(-2f, 2.5f, -0.5f);
+//        gl.glVertex3f(-2f, 2.5f, 0.5f);
+//        gl.glVertex3f(0f, 2.5f, 0f);
+//        gl.glVertex3f(0f, 2.5f, 0f);
+//        gl.glVertex3f(2f, 2.5f, -0.5f);
+//        gl.glVertex3f(2f, 2.5f, 0.5f);
+//        gl.glEnd();
+//    }
     static void Tabung(GL gl) {
         gl.glColor3f(0.0f, 1.0f, 0.0f);
-        float BODY_LENGTH = 2.0f;
-        float BODY_RADIUS = 0.5f;
+        float BODY_LENGTH = 2.5f;
+        float BODY_RADIUS = 0.7f;
         int SLICES = 30;
         int STACKS = 30;
         GLU glu = new GLU();
@@ -91,8 +92,7 @@ public class objek {
     }
 
     static void Tabung2(GL gl) {
-
-        gl.glColor3f(0.0f, 1.0f, 1.0f);
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
         float BODY_LENGTH = 2.0f;
         float BODY_RADIUS = 0.4f;
         int SLICES = 30;
@@ -107,71 +107,88 @@ public class objek {
         glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS);
     }
 
-    static void Bola(GL gl) {
-        float BODY_RADIUS = 2.0f;
-        int SLICES = 30;
-        int STACKS = 30;
-        GLU glu = new GLU();
-        GLUquadric q = glu.gluNewQuadric();
-        glu.gluSphere(q, BODY_RADIUS, SLICES, STACKS);
-    }
-
-    static void BigBox(GL gl) {
-
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-10000, 0, -10000);
-        gl.glVertex3f(10000, 0, -10000);
-        gl.glVertex3f(10000, 0, 10000);
-        gl.glVertex3f(-10000, 0, 10000);
-        gl.glEnd();
-
-    }
-
-    static void kotak(GL gl) {
+    static void kotak2(GL gl) {
         gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glColor3f(0.0f, 0.0f, 1.0f);
+        gl.glColor3f(0.0f, 1.0f, 1.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 0.0f, 2.0f);
-        gl.glVertex3f(2.0f, 0.0f, 2.0f);
-        gl.glVertex3f(2.0f, 0.0f, 0.0f);
+        gl.glVertex3f(0.0f, 0.0f, 1.0f);
+        gl.glVertex3f(1.0f, 0.0f, 1.0f);
+        gl.glVertex3f(1.0f, 0.0f, 0.0f);
         gl.glEnd();
         gl.glBegin(GL.GL_POLYGON);/* f2: Surface bagian bawah
 (ABFE) */
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(3.0f, 0.0f, 0.0f);
-        gl.glVertex3f(3.0f, 3.0f, 0.0f);
-        gl.glVertex3f(0.0f, 3.0f, 0.0f);
+        gl.glVertex3f(1.0f, 0.0f, 0.0f);
+        gl.glVertex3f(1.0f, 1.0f, 0.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
         gl.glEnd();
         gl.glBegin(GL.GL_POLYGON);/* f3:Surface bagian belakang
 (CDHG)*/
-        gl.glVertex3f(3.0f, 3.0f, 0.0f);
-        gl.glVertex3f(3.0f, 3.0f, 3.0f);
-        gl.glVertex3f(0.0f, 3.0f, 3.0f);
-        gl.glVertex3f(0.0f, 3.0f, 0.0f);
+        gl.glVertex3f(1.0f, 1.0f, 0.0f);
+        gl.glVertex3f(1.0f, 1.0f, 1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
         gl.glEnd();
         gl.glBegin(GL.GL_POLYGON);/* f4: Surface bagian atas
 (EFGH)*/
-        gl.glVertex3f(3.0f, 3.0f, 3.0f);
-        gl.glVertex3f(3.0f, 0.0f, 3.0f);
-        gl.glVertex3f(0.0f, 0.0f, 3.0f);
-        gl.glVertex3f(0.0f, 3.0f, 3.0f);
+        gl.glVertex3f(1.0f, 1.0f, 1.0f);
+        gl.glVertex3f(1.0f, 0.0f, 1.0f);
+        gl.glVertex3f(0.0f, 0.0f, 1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 1.0f);
         gl.glEnd();
         gl.glBegin(GL.GL_POLYGON);/* f5: Surface bagian kiri 
 (ADEH)*/
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 3.0f, 0.0f);
-        gl.glVertex3f(0.0f, 3.0f, 3.0f);
-        gl.glVertex3f(0.0f, 0.0f, 3.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
+        gl.glVertex3f(0.0f, 1.0f, 1.0f);
+        gl.glVertex3f(0.0f, 0.0f, 1.0f);
         gl.glEnd();
         gl.glBegin(GL.GL_POLYGON);/* f6: Surface bagian kanan
 (BCFG)*/
-        gl.glVertex3f(3.0f, 0.0f, 0.0f);
-        gl.glVertex3f(3.0f, 0.0f, 3.0f);
-        gl.glVertex3f(3.0f, 3.0f, 3.0f);
-        gl.glVertex3f(3.0f, 3.0f, 0.0f);
+        gl.glVertex3f(1.0f, 0.0f, 0.0f);
+        gl.glVertex3f(1.0f, 0.0f, 1.0f);
+        gl.glVertex3f(1.0f, 1.0f, 1.0f);
+        gl.glVertex3f(1.0f, 1.0f, 0.0f);
         gl.glEnd();
     }
+
+    static void Bola(GL gl) {
+        float BODY_RADIUS = 0.4f;
+        int SLICES = 30;
+        int STACKS = 30;
+        GLU glu = new GLU();
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
+        GLUquadric q = glu.gluNewQuadric();
+        glu.gluSphere(q, BODY_RADIUS, SLICES, STACKS);
+    }
+//    static void BigBox(GL gl) {
+//
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(0.0f, 0.0f, 0.0f);
+//        gl.glVertex3f(-10000, 0, -10000);
+//        gl.glVertex3f(10000, 0, -10000);
+//        gl.glVertex3f(10000, 0, 10000);
+//        gl.glVertex3f(-10000, 0, 10000);
+//        gl.glEnd();
+//
+//    }
+//    static void setengahlingkaran(GL gl) {
+//        float BODY_RADIUS = 0.1f;
+//        int SLICES = 10;
+//        int STACKS = 10;
+//        GLU glu = new GLU();
+//        gl.glColor3f(1f, 0f, 0f);
+//        GLUquadric q = glu.gluNewQuadric();
+//        glu.gluDisk(q, 0.0f, 1.0f, SLICES, STACKS);
+//        double clip_plane1[] = {0.0, 0.0, -1.0, 0.0};
+//        gl.glClipPlane(GL.GL_CLIP_PLANE1, clip_plane1, 0);
+//        gl.glEnable(GL.GL_CLIP_PLANE1);
+//        // drawing a sphere
+//        GLUquadric qd = glu.gluNewQuadric();
+//        glu.gluSphere(qd, 1f, 20, 20);
+//        glu.gluDeleteQuadric(qd);
+//        gl.glDisable(GL.GL_CLIP_PLANE1);
+//    }
 
     static void tabung3(GL gl) {
 //        float amb[] = {1.34f, 0.34f, 0.34f, 1};
@@ -188,8 +205,8 @@ public class objek {
 //                GL.GL_SHININESS, shine);
 
         gl.glColor3f(0.0f, 0.0f, 1.0f);
-        float BODY_LENGTH = 1.5f;
-        float BODY_RADIUS = 0.3f;
+        float BODY_LENGTH = 1f;
+        float BODY_RADIUS = 0.4f;
         int SLICES = 30;
         int STACKS = 30;
         GLU glu = new GLU();
@@ -202,19 +219,9 @@ public class objek {
         glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS);
     }
 
-    static void kotakK1(GL gl) {
-        gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.9f, 0.8f, 0.0f);
-        gl.glVertex3f(0.9f, -0.0f, 0.0f);
-        gl.glVertex3f(-0.9f, -0.0f, 0.0f);
-        gl.glVertex3f(-0.9f, 0.8f, 0.0f);
-        gl.glEnd();
-    }
-
     static void tombol(GL gl) {
         gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glColor3f(0.0f, 1.0f, 1.0f);
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(0.0f, 0.0f, 0.4f);
         gl.glVertex3f(0.4f, 0.0f, 0.4f);
@@ -258,50 +265,7 @@ public class objek {
 
     }
 
-    static void tombol2(GL gl) {
-        gl.glBegin(GL.GL_POLYGON);/* f1: Surface bagian depan */
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 0.0f, 0.4f);
-        gl.glVertex3f(0.4f, 0.0f, 0.4f);
-        gl.glVertex3f(0.4f, 0.0f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f2: Surface bagian bawah
-(ABFE) */
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.4f, 0.0f, 0.0f);
-        gl.glVertex3f(0.4f, 0.4f, 0.0f);
-        gl.glVertex3f(0.0f, 0.4f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f3:Surface bagian belakang
-(CDHG)*/
-        gl.glVertex3f(0.4f, 0.4f, 0.0f);
-        gl.glVertex3f(0.4f, 0.4f, 0.4f);
-        gl.glVertex3f(0.0f, 0.4f, 0.4f);
-        gl.glVertex3f(0.0f, 0.4f, 0.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f4: Surface bagian atas
-(EFGH)*/
-        gl.glVertex3f(0.4f, 0.4f, 0.4f);
-        gl.glVertex3f(0.4f, 0.0f, 0.4f);
-        gl.glVertex3f(0.0f, 0.0f, 0.4f);
-        gl.glVertex3f(0.0f, 0.4f, 0.4f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f5: Surface bagian kiri 
-(ADEH)*/
-        gl.glVertex3f(0.0f, 0.0f, 0.0f);
-        gl.glVertex3f(0.0f, 0.4f, 0.0f);
-        gl.glVertex3f(0.0f, 0.4f, 0.4f);
-        gl.glVertex3f(0.0f, 0.0f, 0.4f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_POLYGON);/* f6: Surface bagian kanan
-(BCFG)*/
-        gl.glVertex3f(0.4f, 0.0f, 0.0f);
-        gl.glVertex3f(0.4f, 0.0f, 0.4f);
-        gl.glVertex3f(0.4f, 0.4f, 0.4f);
-        gl.glVertex3f(0.4f, 0.4f, 0.0f);
-        gl.glEnd();
 
-    }
     static float deg2rad(double degree) {
         return (float) (degree * (22.0 / 7) / 180);
     }
@@ -364,5 +328,5 @@ public class objek {
             sudut += delta;
 
         }
-}
+    }
 }

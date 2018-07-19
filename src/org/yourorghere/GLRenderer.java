@@ -134,35 +134,33 @@ public class GLRenderer implements GLEventListener {
 
         //untuk kotak
         gl.glPushMatrix();
-        gl.glTranslatef(-1f, 0.5f, -15f);
-        gl.glRotatef(90f, 1f, 0, 0);
+        gl.glTranslatef(0f, 0.5f, -16f);
+        gl.glRotatef(0f, 1f, 0, 0);
         objek.kotak(gl);
         gl.glPopMatrix();
 
         //untuk tabung pertama
         gl.glPushMatrix();
-        gl.glTranslatef(0.5f, 2f, -15f);
+        gl.glTranslatef(0f, 3.0f, -15.8f);
         gl.glRotatef(90f, 1f, 0, 0);
         objek.Tabung(gl);
         gl.glPopMatrix();
 
         //untuk tabung kedua
         gl.glPushMatrix();
-        gl.glTranslatef(0.5f, 4f, -15f);
+        gl.glTranslatef(0f, 5.0f, -15.8f);
         gl.glRotatef(90f, 1f, 0, 0);
         objek.Tabung2(gl);
         gl.glPopMatrix();
 
-        //untuk kotak atas
         gl.glPushMatrix();
-        gl.glTranslatef(0f, 3.0f, -15.2f);
-        gl.glRotatef(90f, 0f, 1f, 0f);
-        objek.kotak2(gl);
+        gl.glTranslatef(0f, 5.0f, -15.8f);
+        gl.glRotatef(90f, 1f, 0f, 0f);
+        objek.Bola(gl);
         gl.glPopMatrix();
 
-        //untuk tabung ke3
         gl.glPushMatrix();
-        gl.glTranslatef(0.5f, 3.6f, -15.5f);
+        gl.glTranslatef(0f, 5.0f, -15.8f);
         gl.glRotatef(angle, 0f, 1f, 0f);
         objek.tabung3(gl);
 
@@ -174,34 +172,30 @@ public class GLRenderer implements GLEventListener {
 
         //tombol nomer 0
         gl.glPushMatrix();
-        gl.glTranslatef(-0.5f, 0.3f, -13.0f);
+        gl.glTranslatef(-1.5f, 0.8f, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
 
         //tombol nomer 1
         gl.glPushMatrix();
-        gl.glTranslatef(0.0f, 0.3f, -13.0f);
+        gl.glTranslatef(-0.6f, 0.8f, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
 
         //tombol nomer 2
         gl.glPushMatrix();
-        gl.glTranslatef(0.5f, 0.3f, -13.0f);
+        gl.glTranslatef(0.3f, 0.8f, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
 
         //tombol nomer 3
         gl.glPushMatrix();
-        gl.glTranslatef(1.0f, 0.3f, -13.0f);
+        gl.glTranslatef(1.2f, 0.8f, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
-        gl.glPopMatrix();
-
-        gl.glPushMatrix();
-        objek.BigBox(gl);
         gl.glPopMatrix();
 
         if (geleng) {
@@ -254,8 +248,8 @@ public class GLRenderer implements GLEventListener {
         } //panah kiri
         else if (keyCode == 37) {
             vectorMovement(lateral, 2f, -1f);
-        } //tombol E geleng geleng
-        else if (keyCode == 69) {
+        } //tombol Spasi Muter setengah
+        else if (keyCode == 32) {
             if (geleng) {
                 geleng = false;
             } else {
@@ -294,10 +288,11 @@ public class GLRenderer implements GLEventListener {
             if (off) {
                 off = false;
             } else {
-                off = true;
+                off = false;
                 no3 = false;
                 no2 = false;
                 no1 = false;
+                geleng = false;
             }
 
         } else {
