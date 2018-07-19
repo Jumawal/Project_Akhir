@@ -113,71 +113,14 @@ public class GLRenderer implements GLEventListener {
         gl.glLoadIdentity();
     }
 
-    static float deg2rad(double degree) {
-        return (float) (degree * (22.0 / 7) / 180);
-    }
-
-    static float getX(double sudut, double jarijari) {
-        return (float) (cos(deg2rad(sudut)) * jarijari);
-    }
-
-    static float getY(double sudut, double jarijari) {
-        return (float) (sin(deg2rad(sudut)) * jarijari);
-    }
-
-    static void segiLima(GL gl, float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float x5, float y5, float x6, float y6, float z) {
-        gl.glBegin(GL.GL_POLYGON);
-        gl.glVertex3f(x1, y1, z);
-        gl.glVertex3f(x2, y2, z);
-        gl.glVertex3f(x3, y3, z);
-        gl.glVertex3f(x4, y4, z);
-        gl.glVertex3f(x5, y5, z);
-        gl.glVertex3f(x6, y6, z);
-        gl.glEnd();
-    }
-
-    static void segiEmpatKecil(GL gl, float x1, float y1, float x2, float y2, float zDepan, float zBelakang) {
-        gl.glBegin(gl.GL_QUADS);
-        gl.glVertex3f(x1, y1, zDepan);
-        gl.glVertex3f(x2, y2, zDepan);
-        gl.glVertex3f(x2, y2, zBelakang);
-        gl.glVertex3f(x1, y1, zBelakang);
-        gl.glEnd();
-    }
-
-    static void kipas_angin(GL gl, float diameterluar, float diameterdalam, float tinggigigi, float ketebalan, float banyakgigi) {
-        float delta = (float) (360.0 / banyakgigi);
-        float sudut = 0;
-        float zdepan = (float) (1 * ketebalan);
-        float zbelakang = -zdepan;
-        for (int i = 0; i < banyakgigi; i++) {
-            float sudut1 = (float) (sudut - 2 * delta);
-            float sudut2 = (float) (sudut + 0.5 * delta);
-            float x1 = getX(sudut1, diameterdalam);
-            float y1 = getY(sudut1, diameterdalam);
-            float x2 = getX(sudut2, diameterdalam);
-            float y2 = getY(sudut2, diameterdalam);
-            float x3 = getX(sudut2, diameterluar);
-            float y3 = getY(sudut2, diameterluar);
-            float x4 = getX(sudut, diameterluar + tinggigigi);
-            float y4 = getY(sudut, diameterluar + tinggigigi);
-            float x5 = getX(sudut1, diameterluar);
-            float y5 = getY(sudut1, diameterluar);
-            float x6 = getX(sudut1, diameterluar);
-            float y6 = getY(sudut1, diameterluar);
-            gl.glColor3f(0, 1, 0);
-            segiLima(gl, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, zdepan);
-            segiLima(gl, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, zbelakang);
-            gl.glColor3f(0, 1, 0);
-            segiEmpatKecil(gl, x3, y3, x4, y4, zdepan, zbelakang);
-            segiEmpatKecil(gl, x5, y5, x4, y4, zdepan, zbelakang);
-            segiEmpatKecil(gl, x1, y1, x2, y2, zdepan, zbelakang);
-            sudut += delta;
-
-        }
-    }
     float angle = 0;
-    float direction = 1.0f;
+    float direction = 2.0f;
+    float angle2 = 0;
+    boolean geleng = false;
+    boolean no1 = false;
+    boolean no2 = false;
+    boolean no3 = false;
+    boolean off = false;
 
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
@@ -212,55 +155,23 @@ public class GLRenderer implements GLEventListener {
 
         //untuk kotak atas
         gl.glPushMatrix();
-        gl.glTranslatef(0f, 4f, -15.2f);
-        gl.glRotatef(90f, 1f, 0, 0);
+        gl.glTranslatef(0f, 3.0f, -15.2f);
+        gl.glRotatef(90f, 0f, 1f, 0f);
         objek.kotak2(gl);
         gl.glPopMatrix();
 
-        gl.glPushMatrix();
-        gl.glTranslatef(0.5f, 3.5f, -13.7f);
-        gl.glRotatef(angle, 0f, 1f, 1f);
-        kipas_angin(gl, 1.3f, 0.2f, 1f, 0f, 4);
-//        angle += direction;
-//        if (angle >= 45 || angle <= -45) {
-//            direction = -direction;
-//        }
-        angle++;
-        gl.glPopMatrix();
-        
         //untuk tabung ke3
         gl.glPushMatrix();
         gl.glTranslatef(0.5f, 3.6f, -15.5f);
-        gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
-        gl.glRotatef(-angle, 0f, 1f, 0f);
+        gl.glRotatef(angle, 0f, 1f, 0f);
         objek.tabung3(gl);
-        angle += direction;
-        if (angle >= 45 || angle <= -45) {
-            direction = -direction;
-        }
+
+        //baling-baling
+        gl.glPushMatrix();
+        gl.glRotatef(angle2, 0f, 0f, 1.0f);
+        objek.kipas_angin(gl, 1f, 0f, 1f, 0.1f, 4f);
         gl.glPopMatrix();
 
-        //untuk kotak baling baling atas
-//        //untuk kotak baling baling bawah
-//        gl.glPushMatrix();
-//        gl.glTranslatef(0.9f, 2.5f, -13.7f);
-//        gl.glRotatef(90f, 0.0f, 0.0f, 1.0f);
-//        objek.kotakK1(gl);
-//        gl.glPopMatrix();
-//
-//        //untuk kotak baling baling kanan
-//        gl.glPushMatrix();
-//        gl.glTranslatef(1.5f, 3.0f, -13.7f);
-//        gl.glRotatef(0f, 0.0f, 0.0f, 1.0f);
-//        objek.kotakK1(gl);
-//        gl.glPopMatrix();
-//
-//        //untuk kotak baling baling kiri
-//        gl.glPushMatrix();
-//        gl.glTranslatef(-0.5f, 3.0f, -13.7f);
-//        gl.glRotatef(0f, 0.0f, 0.0f, 1.0f);
-//        objek.kotakK1(gl);
-//        gl.glPopMatrix();
         //tombol nomer 0
         gl.glPushMatrix();
         gl.glTranslatef(-0.5f, 0.3f, -13.0f);
@@ -293,6 +204,25 @@ public class GLRenderer implements GLEventListener {
         objek.BigBox(gl);
         gl.glPopMatrix();
 
+        if (geleng) {
+            angle += direction;
+            if (angle >= 45 || angle <= -45) {
+                direction = -direction;
+            }
+        }
+        if (no1) {
+            angle2 += 15f;
+        }
+        if (no2) {
+            angle2 += 25f;
+        }
+        if (no3) {
+            angle2 += 35f;
+        }
+        if (off) {
+            angle2 += 0f;
+        }
+
         gl.glFlush();
     }
 
@@ -324,14 +254,52 @@ public class GLRenderer implements GLEventListener {
         } //panah kiri
         else if (keyCode == 37) {
             vectorMovement(lateral, 2f, -1f);
-        } //huruf E
+        } //tombol E geleng geleng
         else if (keyCode == 69) {
-            Cx = 0f;
-            Cy = 14f;
-            Cz = 2f;
-            Lx = 0f;
-            Ly = 0f;
-            Lz = 0f;
+            if (geleng) {
+                geleng = false;
+            } else {
+                geleng = true;
+            }
+        } //tombol 1
+        else if (keyCode == 49) {
+            if (no1) {
+                no1 = false;
+            } else {
+                no1 = true;
+                no2 = false;
+                no3 = false;
+                off = false;
+            }
+        } //tombol 2
+        else if (keyCode == 50) {
+            if (no2) {
+                no2 = false;
+            } else {
+                no2 = true;
+                no1 = false;
+                no3 = false;
+                off = false;
+            }
+        } else if (keyCode == 51) {
+            if (no3) {
+                no3 = false;
+            } else {
+                no3 = true;
+                no2 = false;
+                no1 = false;
+                off = false;
+            }
+        } else if (keyCode == 48) {
+            if (off) {
+                off = false;
+            } else {
+                off = true;
+                no3 = false;
+                no2 = false;
+                no1 = false;
+            }
+
         } else {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.     
         }
