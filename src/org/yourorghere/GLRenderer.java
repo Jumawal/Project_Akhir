@@ -28,10 +28,10 @@ public class GLRenderer implements GLEventListener {
     }
     vector lineal = new vector(0f, 0f, -1f);//deklarasi awal vektor untuk maju
     vector lineal2 = new vector(0f, 0f, 1f);//deklarasi awal vektor untuk maju
-    vector lateral = new vector(-1f, 0f, 0f);//deklarasi awal vektor untuk gerakan ke kanan
+    vector lateral = new vector(-1f, 0f, 0f);//deklarasi awal vektor untuk gerakan ke kiri
     vector lateral2 = new vector(1f, 0f, 0f);//deklarasi awal vektor untuk gerakan ke kanan
     vector vertical = new vector(0f, 1f, 0f);//deklarasi awal vetor untuk gerakan naik
-    vector vertical2 = new vector(0f, -1f, 0f);//deklarasi awal vetor untuk gerakan naik
+    vector vertical2 = new vector(0f, -1f, 0f);//deklarasi awal vetor untuk gerakan turun
     vector Sumbu_z = new vector(0f, 0f, -1f);//deklarasiawal vektor untuk maju & mundur 
     vector Sumbu_x = new vector(1f, 0f, 0f);//deklarasi awal vektor untuk gerakan ke kanan & kiri 
     vector Sumbu_y = new vector(0f, 1f, 0f);//deklarasi awal vetor untuk gerakan naik & turun
@@ -114,13 +114,15 @@ public class GLRenderer implements GLEventListener {
     }
 
     float angle = 0;
-    float direction = 2.0f;
+    float direction = 1;
     float angle2 = 0;
     boolean geleng = false;
     boolean no1 = false;
     boolean no2 = false;
     boolean no3 = false;
-    boolean off = false;
+    boolean off = true;
+
+    float button1 = 0.8f, button2 = 0.8f, button3 = 0.8f;
 
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
@@ -179,21 +181,21 @@ public class GLRenderer implements GLEventListener {
 
         //tombol nomer 1
         gl.glPushMatrix();
-        gl.glTranslatef(-0.6f, 0.8f, -14.5f);
+        gl.glTranslatef(-0.6f, button1, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
 
         //tombol nomer 2
         gl.glPushMatrix();
-        gl.glTranslatef(0.3f, 0.8f, -14.5f);
+        gl.glTranslatef(0.3f, button2, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
 
         //tombol nomer 3
         gl.glPushMatrix();
-        gl.glTranslatef(1.2f, 0.8f, -14.5f);
+        gl.glTranslatef(1.2f, button3, -14.5f);
         gl.glRotatef(5f, 1.0f, 0.0f, 0.0f);
         objek.tombol(gl);
         gl.glPopMatrix();
@@ -250,11 +252,14 @@ public class GLRenderer implements GLEventListener {
             vectorMovement(lateral, 2f, -1f);
         } //tombol Spasi Muter setengah
         else if (keyCode == 32) {
-            if (geleng) {
-                geleng = false;
-            } else {
-                geleng = true;
+            if (!off) {
+                if (geleng) {
+                    geleng = false;
+                } else {
+                    geleng = true;
+                }
             }
+
         } //tombol 1
         else if (keyCode == 49) {
             if (no1) {
@@ -264,6 +269,8 @@ public class GLRenderer implements GLEventListener {
                 no2 = false;
                 no3 = false;
                 off = false;
+                button1 = 0.73f;
+                button2 = button3 = 0.8f;
             }
         } //tombol 2
         else if (keyCode == 50) {
@@ -274,8 +281,11 @@ public class GLRenderer implements GLEventListener {
                 no1 = false;
                 no3 = false;
                 off = false;
+                button2 = 0.73f;
+                button1 = button3 = 0.8f;
             }
-        } else if (keyCode == 51) {
+        }//tombol 3 
+        else if (keyCode == 51) {
             if (no3) {
                 no3 = false;
             } else {
@@ -283,16 +293,21 @@ public class GLRenderer implements GLEventListener {
                 no2 = false;
                 no1 = false;
                 off = false;
+                button3 = 0.73f;
+                button2 = button1 = 0.8f;
             }
-        } else if (keyCode == 48) {
+        }//tombol 0 
+        else if (keyCode == 48) {
             if (off) {
                 off = false;
             } else {
-                off = false;
+                off = true;
                 no3 = false;
                 no2 = false;
                 no1 = false;
                 geleng = false;
+                button2 = button1 = button3 = 0.8f;
+
             }
 
         } else {

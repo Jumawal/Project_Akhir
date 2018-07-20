@@ -265,7 +265,6 @@ public class objek {
 
     }
 
-
     static float deg2rad(double degree) {
         return (float) (degree * (22.0 / 7) / 180);
     }
